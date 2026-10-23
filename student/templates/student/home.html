@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student and Course Catalogue</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+            padding: 14px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        ul {
+            background-color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        li {
+            padding: 8px;
+        }
+
+        .excellent {
+            color: green;
+            font-weight: bold;
+        }
+
+        .good {
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student and Course Catalogue</h1>
+
+    <h2>Total Students: {{ students|length }}</h2>
+
+    <h2>Student Details</h2>
+
+    <table>
+
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Course</th>
+            <th>CGPA</th>
+            <th>Status</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+            <td>{{ student.name|upper }}</td>
+            <td>{{ student.roll }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.cgpa }}</td>
+
+            <td>
+                {% if student.cgpa >= 8 %}
+                    <span class="excellent">Excellent</span>
+                {% else %}
+                    <span class="good">Good</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <h2>Available Courses</h2>
+
+    <ul>
+
+        {% for course in courses %}
+            <li>{{ course }}</li>
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>
