@@ -1,3 +1,3 @@
 ## STUDENTS MANAGEMENT SYSTEM
 
-hello Shivansh, fuck you
+hello Shivansh
